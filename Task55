@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Time Display</title>
+</head>
+<body>
+
+    <p id="timeDisplay" style="color: blue; font-weight: bold;"></p>
+
+    <button onclick="startTime()">Click me</button>
+    <button onclick="stopTime()">Stop</button>
+
+    <script>
+    let timerID;
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toString();
+            document.getElementById("timeDisplay").textContent = timeString;
+        }
+
+        function startTime() {
+            updateTime();
+            timerID = setInterval(updateTime, 1000); 
+        }
+        function stopTime() {
+            clearInterval(timerID);
+        }
+    </script>
+
+</body>
+</html>
